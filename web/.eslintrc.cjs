@@ -31,6 +31,7 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     'react-hooks/exhaustive-deps': 'warn',
+    'react/prop-types': 'off',
     'import/order': [
       'error',
       {
