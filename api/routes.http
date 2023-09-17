@@ -26,3 +26,15 @@ Content-Type: application/json
 {
   "prompt": "javascript, programming, tips, asynchronous, array, string"
 }
+
+###
+
+// @name generate_ai_completion
+POST {{base_url}}/ai/completion HTTP/1.1
+Content-Type: application/json
+
+{
+  "videoId": "{{video_id}}",
+  "template": "Generate a succinct summary of the video transcription provided below: '''{transcription}'''",
+  "temperature": 0.7
+}
