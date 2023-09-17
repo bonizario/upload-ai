@@ -1,0 +1,12 @@
+* text=auto
+
+*.json eol=lf
+*.prisma eol=lf
+*.sql eol=lf
+*.toml eol=lf
+*.ts eol=lf
+*.tsx eol=lf
+
+/api/*.js linguist-detectable=false
+/web/*.js linguist-detectable=false
+/api/.env.example linguist-detectable=false
