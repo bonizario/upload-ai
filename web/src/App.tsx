@@ -1,4 +1,4 @@
-import { FileVideo, Github, Upload, Wand2 } from 'lucide-react';
+import { FileVideo, Github, HelpCircle, Upload, Wand2 } from 'lucide-react';
 
 import { Button } from './components/ui/Button';
 import { Label } from './components/ui/Label';
@@ -12,6 +12,7 @@ import {
 import { Separator } from './components/ui/Separator';
 import { Slider } from './components/ui/Slider';
 import { Textarea } from './components/ui/Textarea';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './components/ui/Tooltip';
 
 export function App() {
   return (
@@ -129,7 +130,27 @@ export function App() {
             <Separator />
 
             <div className="space-y-4">
-              <Label>Temperature</Label>
+              <Label className="relative flex items-center gap-2">
+                Temperature
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <HelpCircle className="h-4 w-4" />
+                    </TooltipTrigger>
+                    <TooltipContent className="absolute bottom-2 left-[-110px] flex h-24 w-[21.75rem] flex-col justify-center gap-2">
+                      <span className="block text-xs italic">
+                        <strong>Lower temperatures</strong> produce more focused, conservative, and
+                        consistent responses.
+                      </span>
+
+                      <span className="block text-xs italic">
+                        <strong>Higher temperatures</strong> generate more creative, diverse, and
+                        unexpected outputs.
+                      </span>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </Label>
 
               <Slider min={0} max={1} step={0.1} defaultValue={[0.5]} className="cursor-pointer" />
 
@@ -137,13 +158,6 @@ export function App() {
                 <span className="block text-xs italic text-muted-foreground">
                   Higher temperature = more creativity!
                 </span>
-                {/* <span className="block text-xs italic text-muted-foreground">
-                  Lower temperatures produce more focused, conservative, and consistent responses.
-                </span>
-
-                <span className="block text-xs italic text-muted-foreground">
-                  Higher temperatures generate more creative, diverse, and unexpected outputs.
-                </span> */}
               </div>
             </div>
 
