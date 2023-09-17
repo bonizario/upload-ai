@@ -1,0 +1,9 @@
+@base_url = http://127.0.0.1:3333
+
+// @name list_prompts
+GET {{base_url}}/prompts HTTP/1.1
+
+###
+
+// @name list_videos
+GET {{base_url}}/videos HTTP/1.1
