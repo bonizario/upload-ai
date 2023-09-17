@@ -35,6 +35,6 @@ Content-Type: application/json
 
 {
   "videoId": "{{video_id}}",
-  "template": "Generate a succinct summary of the video transcription provided below: '''{transcription}'''",
+  "prompt": "Generate a succinct summary of the video transcription provided below: '''{transcription}'''",
   "temperature": 0.7
 }

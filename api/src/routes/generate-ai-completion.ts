@@ -1,3 +1,4 @@
+import { OpenAIStream, streamToResponse } from 'ai';
 import { FastifyInstance } from 'fastify';
 import { z } from 'zod';
 
@@ -8,11 +9,11 @@ export async function generateAICompletionRoute(app: FastifyInstance) {
   app.post('/ai/completion', async (request, reply) => {
     const bodySchema = z.object({
       videoId: z.string().uuid(),
-      template: z.string(),
+      prompt: z.string(),
       temperature: z.number().min(0).max(1).default(0.5),
     });
 
-    const { videoId, template, temperature } = bodySchema.parse(request.body);
+    const { videoId, prompt, temperature } = bodySchema.parse(request.body);
 
     const video = await prisma.video.findUniqueOrThrow({
       where: {
@@ -26,7 +27,7 @@ export async function generateAICompletionRoute(app: FastifyInstance) {
         .send({ error: 'Video transcription was not generated yet' });
     }
 
-    const promptMessage = template.replace(
+    const promptMessage = prompt.replace(
       '{transcription}',
       video.transcription,
     );
@@ -35,8 +36,17 @@ export async function generateAICompletionRoute(app: FastifyInstance) {
       model: 'gpt-3.5-turbo-16k',
       temperature,
       messages: [{ role: 'user', content: promptMessage }],
+      stream: true,
     });
 
-    return reply.status(201).send(response);
+    const stream = OpenAIStream(response);
+
+    streamToResponse(stream, reply.raw, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods':
+          'GET, POST, PUT, PATCH, DELETE, OPTIONS',
+      },
+    });
   });
 }
