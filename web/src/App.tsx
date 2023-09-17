@@ -17,7 +17,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './comp
 export function App() {
   return (
     <div className="flex h-screen cursor-default flex-col overflow-hidden selection:bg-secondary-foreground selection:text-secondary">
-      <header className="flex items-center justify-between border-b px-6 py-3">
+      <header className="flex select-none items-center justify-between border-b px-6 py-3">
         <h1 className="text-xl font-bold">upload.ai</h1>
 
         <div className="flex items-center gap-3">
