@@ -1,4 +1,4 @@
-import { FileVideo, Github, HelpCircle, Upload, Wand2 } from 'lucide-react';
+import { Github, HelpCircle, Wand2 } from 'lucide-react';
 
 import { Button } from './components/ui/Button';
 import { Label } from './components/ui/Label';
@@ -13,6 +13,7 @@ import { Separator } from './components/ui/Separator';
 import { Slider } from './components/ui/Slider';
 import { Textarea } from './components/ui/Textarea';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './components/ui/Tooltip';
+import { VideoInputForm } from './components/VideoInputForm';
 
 export function App() {
   return (
@@ -60,34 +61,7 @@ export function App() {
         </div>
 
         <aside className="w-[22.5rem] space-y-6 overflow-auto pr-4">
-          <form className="space-y-6">
-            <label
-              htmlFor="video"
-              className="flex aspect-video cursor-pointer flex-col items-center justify-center gap-2 rounded-md border border-dashed text-sm text-muted-foreground transition-colors hover:bg-primary/10"
-            >
-              <FileVideo className="h-6 w-6" />
-              Select video
-            </label>
-
-            <input type="file" id="video" accept="video/mp4" className="sr-only" />
-
-            <Separator />
-
-            <div className="space-y-2">
-              <Label htmlFor="transcription-prompt">Transcription prompt</Label>
-
-              <Textarea
-                id="transcription-prompt"
-                className="min-h-[5 rem] resize-none p-4 leading-relaxed"
-                placeholder='List keywords mentioned in the video, separated by commas ","'
-              />
-            </div>
-
-            <Button type="submit" className="w-full">
-              Upload video
-              <Upload className="ml-2 h-4 w-4" />
-            </Button>
-          </form>
+          <VideoInputForm />
 
           <Separator />
 
