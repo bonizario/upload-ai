@@ -137,7 +137,7 @@ export function App() {
                     <TooltipTrigger asChild>
                       <HelpCircle className="h-4 w-4" />
                     </TooltipTrigger>
-                    <TooltipContent className="absolute bottom-2 left-[-110px] flex h-24 w-[21.75rem] flex-col justify-center gap-2">
+                    <TooltipContent className="absolute bottom-2 left-[-110px] flex h-24 w-[21.5rem] flex-col justify-center gap-2">
                       <span className="block text-xs italic">
                         <strong>Lower temperatures</strong> produce more focused, conservative, and
                         consistent responses.
