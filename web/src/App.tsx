@@ -43,10 +43,10 @@ export function App() {
 
         <div className="flex items-center gap-3">
           <a
+            href="http://linkedin.com/in/gabriel-bonizario"
             target="_blank"
-            href="https://github.com/bonizario"
-            className="group text-sm text-muted-foreground"
             rel="noreferrer"
+            className="group text-sm text-muted-foreground"
           >
             Made with ❤ by <strong className="font-semibold text-primary">bonizario</strong>
             <span className="block h-[0.0625rem] max-w-0 bg-primary transition-all duration-500 group-hover:max-w-full" />
@@ -55,8 +55,15 @@ export function App() {
           <Separator orientation="vertical" className="h-6" />
 
           <Button variant="outline">
-            <Github className="mr-2 h-4 w-4" />
-            GitHub
+            <a
+              href="https://github.com/bonizario/upload-ai"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center"
+            >
+              <Github className="mr-2 h-4 w-4" />
+              GitHub
+            </a>
           </Button>
         </div>
       </header>
