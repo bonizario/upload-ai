@@ -61,8 +61,8 @@ export function App() {
         </div>
       </header>
 
-      <main className="flex flex-1 gap-6 overflow-auto p-6">
-        <div className="flex flex-1 flex-col gap-4">
+      <main className="flex flex-1 gap-6 overflow-auto px-4 py-6">
+        <div className="flex flex-1 flex-col gap-4 pl-2">
           <div className="grid flex-1 grid-rows-2 gap-4">
             <Textarea
               value={input}
@@ -87,7 +87,7 @@ export function App() {
           </p>
         </div>
 
-        <aside className="w-[22.5rem] space-y-6 overflow-auto pr-4">
+        <aside className="w-[22.5rem] space-y-6 overflow-auto pr-2">
           <VideoInputForm onVideoUploaded={setVideoId} />
 
           <Separator />
