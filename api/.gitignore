@@ -132,3 +132,4 @@ dist
 # uploads
 uploads/**
 !uploads/.gitkeep
+/**/*.mp3

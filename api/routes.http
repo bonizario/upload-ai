@@ -1,4 +1,5 @@
 @base_url = http://127.0.0.1:3333
+@video_id = 65a9b6cb-b935-4b60-a9d4-629a7aca410e
 
 // @name list_prompts
 GET {{base_url}}/prompts HTTP/1.1
@@ -10,8 +11,18 @@ POST {{base_url}}/videos HTTP/1.1
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="file"; filename="example.mp3"
+Content-Disposition: form-data; name="file"; filename="javascript_tips.mp3"
 Content-Type: audio/mpeg
 
-< ./example.mp3
+< ./javascript_tips.mp3
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+// @name create_transcription
+POST {{base_url}}/videos/{{video_id}}/transcription HTTP/1.1
+Content-Type: application/json
+
+{
+  "prompt": "javascript, programming, tips, asynchronous, array, string"
+}
