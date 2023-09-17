@@ -9,5 +9,5 @@ app.get('/', (request, response) => {
 });
 
 app.listen({ port: PORT }).then(() => {
-  console.log(`Server started at http://localhost:${PORT}`)
+  console.log(`Server started at http://localhost:${PORT}`);
 });
